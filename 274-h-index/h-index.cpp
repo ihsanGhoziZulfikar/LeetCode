@@ -10,8 +10,8 @@ public:
                 i++;
             }
             int h=min(i,citations[start_i]);
-            if(h>max_h ){
-                max_h=min(i,citations[start_i]);
+            if(h>max_h){
+                max_h=h;
             }
         }
         return max_h;
