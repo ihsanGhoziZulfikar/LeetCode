@@ -8,7 +8,6 @@ public:
             auto it=char_idx.find(s[j]);
             if(it==char_idx.end() || it->second<i){ // if not exist or before i (start of window)
                 max_len=max(max_len,j-i+1);
-                cout << j << " " << i << endl;
             }else{
                 i=it->second+1;
             }
