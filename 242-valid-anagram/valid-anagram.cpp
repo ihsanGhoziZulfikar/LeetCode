@@ -7,8 +7,7 @@ public:
             words[s[i]]++;
         }
         for(int i=0;i<t.length();i++){
-            auto it=words.find(t[i]);
-            if(it==words.end() || it->second <=0){
+            if(words[t[i]]<=0){
                 return false;
             }else{
                 words[t[i]]--;
