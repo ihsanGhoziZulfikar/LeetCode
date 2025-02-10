@@ -11,7 +11,6 @@ public:
     bool hasCycle(ListNode *head) {
         set<ListNode*> nodes;
         while(head){
-            cout << head->val << endl;
             if(nodes.find(head) == nodes.end()){
                 nodes.insert(head);
             }else{
