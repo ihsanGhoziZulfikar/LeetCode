@@ -4,7 +4,6 @@ public:
         map<int,int> m;
         for(int i=0;i<nums.size();i++){
             if(m.find(nums[i]) != m.end()){
-                cout << m[nums[i]] - i << endl;
                 if(abs(m[nums[i]] - i) <= k){
                     return true;
                 }
