@@ -9,16 +9,15 @@ public:
         return false;
     };
     string reverseVowels(string s) {
-        deque<char> dq;
         int i=0,j=s.length()-1;
         while(i<j){
             while(!isVowel(s[i]) && i<j)i++;
             while(!isVowel(s[j]) && j>i)j--;
-            // cout << i << " " << j << endl;
             if(i<j){
-                char temp=s[i];
-                s[i]=s[j];
-                s[j]=temp;
+                s[i]=s[i]^s[j];
+                s[j]=s[i]^s[j];
+                s[i]=s[i]^s[j];
+
                 i++;
                 j--;
             }
