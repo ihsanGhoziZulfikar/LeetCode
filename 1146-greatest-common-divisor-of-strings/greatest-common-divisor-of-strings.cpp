@@ -33,9 +33,7 @@ public:
             int res=0;
             int same=true;
             string copy = str1.substr(0,divi[i]);
-            cout << divi[i] << endl;
             for(int j=0;j<str2.length()/divi[i];j++){
-                cout << str2.substr(j*divi[i],divi[i]) << "+" << copy << endl;
                 if(str2.substr(j*divi[i],divi[i])!=copy){
                     same=false;
                     break;
@@ -43,7 +41,6 @@ public:
             }
             if(same){
                 for(int j=0;j<str1.length()/divi[i];j++){
-                    cout << str1.substr(j*divi[i],divi[i]) << "+" << copy << endl;
                     if(str1.substr(j*divi[i],divi[i])!=copy){
                         same=false;
                         break;
