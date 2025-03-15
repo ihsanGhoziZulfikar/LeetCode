@@ -14,18 +14,16 @@ public:
         if(!head->next){
             return head->next;
         }
+        vector<ListNode*> v;
         ListNode* temp = head;
         int n=0;
         while(temp){
             n++;
+            v.push_back(temp);
             temp=temp->next;
         }
         n=n/2-1;
-        temp = head;
-        while(n--){
-            temp=temp->next;
-        }
-        temp->next = temp->next->next;
+        v[n]->next = v[n]->next->next;
         return head;
     }
 };
