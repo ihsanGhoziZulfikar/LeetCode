@@ -12,7 +12,6 @@ public:
         k=j;
         j++;
         while(i<nums.size() && j<nums.size()){
-            cout << nums[j] << " -> " << j << " " << i << " " << maxi <<  endl;
             maxi=max(j-i-1,maxi);
             if(nums[j]==1){
                 j++;
