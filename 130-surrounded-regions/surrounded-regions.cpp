@@ -3,7 +3,7 @@ public:
     map<pair<int,int>,int> safe;
     void dfs(int x, int y, vector<vector<char>> board){
         if(x>=0 && y>=0 && x<board.size() && y<board[x].size() && !safe[{x,y}] && board[x][y] == 'O'){
-            cout << x << " - " << y << ": " << board[x][y] << endl;
+            // cout << x << " - " << y << ": " << board[x][y] << endl;
             safe[{x,y}]=1;
             dfs(x-1,y,board);
             dfs(x+1,y,board);
@@ -39,7 +39,7 @@ public:
         }
 
         // for(auto const &it: safe){
-        //     cout << it.first.first << " " << it.first.second << endl;
+        //     cout << it.first.first << " " << it.first.second << ": " << it.second << endl;
         // }
     }
 };
