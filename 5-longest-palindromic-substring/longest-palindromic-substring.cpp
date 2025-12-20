@@ -1,34 +1,39 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        string res = s.substr(0,1);
-        string temp;
+        vector<vector<int>> dp(s.length(), vector<int>(s.length(), 0));
+        int longest=1;
+        string longest_str = s.substr(0,1);
         for(int i=0;i<s.length();i++){
-            if(i+1<s.length() && s[i]==s[i+1]){
-                temp = s.substr(i,2);
-                int start=i-1, end=i+2;
-                while(start>=0 && end<s.length() && s[start] == s[end]){
-                    temp = s[start] + temp + s[end];
-                    start--;
-                    end++;
-                }
-                if(temp.length()>res.length()){
-                    res = temp;
-                }
-            }
-            if(i+2<s.length() && s[i]==s[i+2]){
-                temp = s.substr(i,3);
-                int start=i-1, end=i+3;
-                while(start>=0 && end<s.length() && s[start] == s[end]){
-                    temp = s[start] + temp + s[end];
-                    start--;
-                    end++;
-                }
-                if(temp.length()>res.length()){
-                    res = temp;
+            dp[i][i]=1;
+            if(i+1<s.length()){
+                if(s[i]==s[i+1]){
+                    dp[i][i+1]=2;
+                    longest=2;
+                    longest_str = s.substr(i, 2);
+                }else{
+                    dp[i][i+1]=0;
                 }
             }
         }
-        return res;
+        int col=2;
+        while(col<s.length()){
+            int i=0;
+            int j=col;
+            while(j<s.length()){
+                if(s[i]==s[j] && dp[i+1][j-1]>0){
+                    dp[i][j] = dp[i+1][j-1] + 2;
+                    if(j-i+1 > longest){
+                        longest = j-i+1;
+                        longest_str=s.substr(i, j-i+1);
+                    }
+                }
+                i++;
+                j++;
+            }
+            col++;
+        }
+
+        return longest_str;
     }
 };
